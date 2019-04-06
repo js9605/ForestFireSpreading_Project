@@ -6,3 +6,7 @@ simulation of forest fire
 
 - Created burning forest 
 - There is a bug that gives the whole cluster a burning forest on start
+
+06.04
+
+- Bug bug that gives the whole cluster a burning forest on start is fixed
