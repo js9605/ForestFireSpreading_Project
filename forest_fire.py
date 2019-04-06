@@ -20,13 +20,15 @@ import random as rd
 class Forest_fire:
 
     def __init__(self):
-        self.forrest_density = 0.5
+        self.forrest_density = 0.9
         self.map_size = 100
         self.time_limit = 100
         self.map = []
         self.trees_on_fire_amount = 1
         self.trees_on_fire_amount -= 1
         self.time = 0
+        self.burning_tree_position_row = []
+        self.burning_tree_position_col = []
 
     def set_on_fire_around_one(self, i, j):
 
@@ -106,10 +108,20 @@ class Forest_fire:
                 self.map[row][col] = 2
 
     def spread_fire(self):
+        # for i in range(self.map_size):
+        #     for j in range(self.map_size):
+        #         if self.map[i][j] == 1:
+        #             Forest_fire.set_on_fire_around_one(self, i, j)
+
         for i in range(self.map_size):
             for j in range(self.map_size):
                 if self.map[i][j] == 1:
-                    Forest_fire.set_on_fire_around_one(self, i, j)
+                    self.burning_tree_position_row.append(i)
+                    self.burning_tree_position_col.append(j)
+
+        for i in range(len(self.burning_tree_position_row)):
+            Forest_fire.set_on_fire_around_one(self, self.burning_tree_position_row[i], self.burning_tree_position_col[i])
+
 
     def show_map_as_matrix(self):
         for i in range(len(self.map)):
