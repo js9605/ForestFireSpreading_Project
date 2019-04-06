@@ -23,9 +23,10 @@ class Forest_fire:
 
         #user settings
         self.forrest_density = 0.9
-        self.map_size = 100
-        self.time_limit = 100
-        self.trees_on_fire_amount = input("How many burning trees on start: ")
+        self.map_size = 150
+        self.time_limit = 200
+        self.trees_on_fire_amount = int(input("How many burning trees on start: "))
+        self.wetness = int(input("How wet is the forest (0 - 100): "))
 
         self.map = []
         self.trees_on_fire_amount -= 1
@@ -111,10 +112,6 @@ class Forest_fire:
                 self.map[row][col] = 2
 
     def spread_fire(self):
-        # for i in range(self.map_size):
-        #     for j in range(self.map_size):
-        #         if self.map[i][j] == 1:
-        #             Forest_fire.set_on_fire_around_one(self, i, j)
 
         for i in range(self.map_size):
             for j in range(self.map_size):
@@ -123,8 +120,9 @@ class Forest_fire:
                     self.burning_tree_position_col.append(j)
 
         for i in range(len(self.burning_tree_position_row)):
-            Forest_fire.set_on_fire_around_one(self, self.burning_tree_position_row[i], self.burning_tree_position_col[i])
-
+            self.burn_prob = rd.randint(0, 5 + self.wetness)
+            if self.burn_prob <= 5:
+                Forest_fire.set_on_fire_around_one(self, self.burning_tree_position_row[i], self.burning_tree_position_col[i])
 
     def show_map_as_matrix(self):
         for i in range(len(self.map)):
