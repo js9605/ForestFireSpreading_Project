@@ -1,12 +1,14 @@
 # forest_fire
 simulation of forest fire
 
+Python Simulation of Forest Fire.
+How to run the simulation:
 
-04.04
+Just run the program. It will ask you how many trees you have one start and how wet is the forest.
 
-- Created burning forest 
-- There is a bug that gives the whole cluster a burning forest on start
+Settings like:
+- map_size
+- forrest_density
+- time_limit
 
-06.04
-
-- Bug that gives the whole cluster a burning forest on start is fixed
+can be found in the code.
