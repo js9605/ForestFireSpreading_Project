@@ -9,4 +9,4 @@ simulation of forest fire
 
 06.04
 
-- Bug bug that gives the whole cluster a burning forest on start is fixed
+- Bug that gives the whole cluster a burning forest on start is fixed
